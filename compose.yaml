@@ -1,0 +1,45 @@
+version: "3.1"
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  fastify:
+    image: fastify
+    container_name: fastify
+    hostname: fastify
+    build:
+      context: ./fastify
+      dockerfile: Containerfile
+    volumes:
+      - ./fastify/src/:/opt/fastify/src
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+
+  react:
+    image: react
+    container_name: react
+    hostname: react
+    build:
+      context: ./react
+      dockerfile: Containerfile
+    volumes:
+      - ./react/src/:/opt/react/src
+    ports:
+      - 4000:4000
+    depends_on:
+      - fastify
+    restart: always
+    environment:
+      VITE_API_URL: "fastify:4000"

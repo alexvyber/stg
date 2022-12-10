@@ -1,0 +1,11 @@
+FROM node:18-alpine AS base
+ARG PNPM_VERSION=7.18.1
+RUN npm --global install pnpm@${PNPM_VERSION}
+
+WORKDIR /opt/fastify
+
+FROM base AS dev
+COPY . .
+RUN pnpm install
+
+ENTRYPOINT ["pnpm", "dev"]
