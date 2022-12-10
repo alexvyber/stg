@@ -39,3 +39,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.main {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
