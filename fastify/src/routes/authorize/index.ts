@@ -1,6 +1,7 @@
 import { FastifyPluginAsync } from "fastify"
 import { UserData } from "../../entities/user"
 import { authorizeUser } from "../../utils/authorize"
+import { login } from "../../utils/login"
 
 const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   fastify.post<{ Body: UserData; Reply: any }>(
@@ -35,6 +36,8 @@ const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
           }
         })
       }
+
+      await login(fastify, userId, request, reply)
 
       reply.send({
         data: {

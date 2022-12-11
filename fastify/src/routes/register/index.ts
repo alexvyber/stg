@@ -1,5 +1,6 @@
 import { FastifyPluginAsync } from "fastify"
 import { UserData } from "../../entities/user"
+import { login } from "../../utils/login"
 import { registerUser } from "../../utils/register"
 
 const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
@@ -35,6 +36,9 @@ const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
         }
       })
     }
+
+    // login user immediately after registration
+    await login(fastify, userId, request, reply)
 
     reply.send({
       data: {
