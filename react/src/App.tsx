@@ -1,18 +1,21 @@
-import { useState } from "react"
 import "./App.css"
 
+import { Auth } from "./compoents/auth"
+import { InputField } from "./compoents/input-field"
+
 function App() {
-  const [state, setState] = useState("")
   return (
     <div className="App">
-      <h1>Vite + React</h1>
       <div className="main">
-        <input
-          type="text"
-          value={state}
-          onChange={({ target }) => setState(target.value)}
-        />
-        <button>Click!</button>
+        <InputField />
+      </div>
+
+      <br />
+      <hr />
+      <br />
+
+      <div style={{ marginTop: "100px" }}>
+        <Auth />
       </div>
     </div>
   )
