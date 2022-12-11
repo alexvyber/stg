@@ -1,20 +1,20 @@
 // This file contains code that we reuse between our tests.
-const helper = require('fastify-cli/helper.js')
-import * as path from 'path'
-import * as tap from 'tap';
+const helper = require("fastify-cli/helper.js")
+import * as path from "path"
+import * as tap from "tap"
 
-export type Test = typeof tap['Test']['prototype'];
+export type Test = typeof tap["Test"]["prototype"]
 
-const AppPath = path.join(__dirname, '..', 'src', 'app.ts')
+const AppPath = path.join(__dirname, "..", "src", "app.ts")
 
 // Fill in this config with all the configurations
 // needed for testing the application
-async function config () {
+async function config() {
   return {}
 }
 
 // Automatically build and tear down our instance
-async function build (t: Test) {
+async function build(t: Test) {
   // you can set all the options supported by the fastify CLI command
   const argv = [AppPath]
 
@@ -29,7 +29,4 @@ async function build (t: Test) {
   return app
 }
 
-export {
-  config,
-  build
-}
+export { config, build }

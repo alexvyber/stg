@@ -20,7 +20,7 @@ const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
       res
     })
 
-    return res ? "this is an example" : "asd"
+    return res ? "success" : "failure"
   })
 }
 
