@@ -19,8 +19,6 @@ services:
       dockerfile: Containerfile
     volumes:
       - ./fastify/src/:/opt/fastify/src
-    ports:
-      - 3000:3000
     depends_on:
       - mongo
     restart: always
@@ -40,10 +38,25 @@ services:
       dockerfile: Containerfile
     volumes:
       - ./react/src/:/opt/react/src
-    ports:
-      - 4000:4000
     depends_on:
       - fastify
     restart: always
     environment:
       VITE_API_URL: "http://localhost:3000"
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    hostname: nginx
+    build:
+      context: ./nginx
+      dockerfile: Containerfile
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - 80:80
+      # - 443:443
+    restart: always
+    depends_on:
+      - fastify
+      - react

@@ -1,0 +1,10 @@
+FROM nginx
+
+# Remove any existing config files
+RUN [ -d "/etc/nginx/conf.d/" ] && rm -rf /etc/nginx/conf.d || exit 0
+
+# Expose the listening port
+EXPOSE 80
+
+# Launch NGINX
+CMD [ "nginx", "-g", "daemon off;" ]
