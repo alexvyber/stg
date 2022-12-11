@@ -3,7 +3,7 @@ import { UserData } from "../../entities/user"
 import { authorizeUser } from "../../utils/authorize"
 import { login } from "../../utils/login"
 
-const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
+const loginUser: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   fastify.post<{ Body: UserData; Reply: any }>(
     "/",
     async function (request, reply) {
@@ -51,4 +51,4 @@ const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   )
 }
 
-export default register
+export default loginUser

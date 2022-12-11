@@ -8,7 +8,7 @@ import { Fastify } from "../types"
 
 // HACK: hacky way to pass mongo with entire fastify object
 // ???: Is ii right?
-export const registerUser = async (
+export const register = async (
   fastify: Fastify,
   userData: UserData
 ): Promise<ObjectId> => {

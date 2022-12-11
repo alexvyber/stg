@@ -1,9 +1,12 @@
 import { FastifyPluginAsync } from "fastify"
 import { UserData } from "../../entities/user"
 import { login } from "../../utils/login"
-import { registerUser } from "../../utils/register"
+import { register } from "../../utils/register"
 
-const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
+const registerUser: FastifyPluginAsync = async (
+  fastify,
+  opts
+): Promise<void> => {
   fastify.post<{ Body: UserData; Reply: any }>(
     "/",
     async function (request, reply) {
@@ -28,7 +31,7 @@ const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
         })
       }
 
-      const userId = await registerUser(fastify, { email, password })
+      const userId = await register(fastify, { email, password })
 
       if (!userId) {
         reply.code(400).send({
@@ -54,4 +57,4 @@ const register: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   )
 }
 
-export default register
+export default registerUser
