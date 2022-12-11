@@ -1,6 +1,6 @@
 import { useSocket } from "../hooks/use-socket"
 
-const url = "ws://localhost/api/real-time"
+const url = import.meta.env.VITE_WS_URL
 
 export const RealTimeField = () => {
   const [socket, text, sendMessage] = useSocket(url)
