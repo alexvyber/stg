@@ -8,7 +8,10 @@ import { Fastify } from "../types"
 
 // HACK: hacky way to pass mongo with entire fastify object
 // ???: Is ii right?
-export const registerUser = async (fastify: Fastify, userData: UserData): Promise<ObjectId> => {
+export const registerUser = async (
+  fastify: Fastify,
+  userData: UserData
+): Promise<ObjectId> => {
   // Error in no db availible
   if (!fastify.mongo.db) {
     throw new Error("No db connection")

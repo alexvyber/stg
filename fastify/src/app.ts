@@ -9,7 +9,10 @@ export type AppOptions = {
 // Pass --options via CLI arguments in command to enable these options.
 const options: AppOptions = {}
 
-const app: FastifyPluginAsync<AppOptions> = async (fastify, opts): Promise<void> => {
+const app: FastifyPluginAsync<AppOptions> = async (
+  fastify,
+  opts
+): Promise<void> => {
   // Place here your custom code!
 
   // Do not touch the following lines
