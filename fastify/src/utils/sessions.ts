@@ -1,7 +1,6 @@
 import { ObjectId } from "mongodb"
 import { randomBytes } from "node:crypto"
 import { Fastify } from "../types/index.js"
-import type { JwtPayload } from "jsonwebtoken"
 
 export const createSession = async (
   fastify: Fastify,
@@ -39,10 +38,7 @@ export const createSession = async (
   }
 }
 
-export const removeSession = async (
-  fastify: Fastify,
-  sessionToken: string | JwtPayload // ???: will it break db if we'll try to use Jwtpayload as key
-) => {
+export const removeSession = async (fastify: Fastify, sessionToken: string) => {
   // Error in no db availible
   if (!fastify.mongo.db) {
     throw new Error("No db connection")
@@ -51,4 +47,15 @@ export const removeSession = async (
   const sessions = fastify.mongo.db.collection("sessions")
 
   await sessions.deleteOne({ sessionToken })
+}
+
+export const getSession = async (fastify: Fastify, sessionToken: string) => {
+  // Error in no db availible
+  if (!fastify.mongo.db) {
+    throw new Error("No db connection")
+  }
+
+  const sessions = fastify.mongo.db.collection("sessions")
+
+  return sessions.findOne({ sessionToken })
 }

@@ -18,7 +18,11 @@ export async function logout(
     throw new Error("No refresh token provided")
   }
 
-  const sessionToken = verify(refreshToken, jwtSecret)
+  const { sessionToken } = verify(refreshToken, jwtSecret) as {
+    sessionToken: string
+  } // FIXME: fix typings
+
+  fastify.log.info({ sessionToken })
 
   await removeSession(fastify, sessionToken)
 
