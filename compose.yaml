@@ -7,6 +7,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
 
   fastify:
     image: fastify
@@ -25,7 +27,9 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017
+      FASTIFY_COOCKIE_SECRET: 3ec31422be4af342cf79e3170d7db3aec59f977211a1d2b7a94233ac25ea1b21
+      FASTIFY_JWT_SECRET: 11efedb0c7ef5ac7a5f35b1a215a6a14307db52a7b97ea3b43e72a6fe53b593a
 
   react:
     image: react
@@ -42,4 +46,4 @@ services:
       - fastify
     restart: always
     environment:
-      VITE_API_URL: "fastify:4000"
+      VITE_API_URL: "http://localhost:3000"

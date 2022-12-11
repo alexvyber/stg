@@ -1,0 +1,26 @@
+version: "3"
+
+tasks:
+  build:
+    cmds:
+      - docker-compose build
+
+  dev:
+    cmds:
+      - docker-compose up
+
+  devd:
+    cmds:
+      - docker-compose up -d
+
+  stop:
+    cmds:
+      - docker kill $(docker ps -q) && docker rm $(docker ps -a -q)
+
+  clean:
+    cmds:
+      - docker system prune -af --volumes
+
+  dev-build:
+    cmds:
+      - docker-compose up --build
