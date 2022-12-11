@@ -1,12 +1,13 @@
 import { ObjectId } from "mongodb"
 import { randomBytes } from "node:crypto"
 import { Fastify } from "../types/index.js"
+import type { JwtPayload } from "jsonwebtoken"
 
-export async function createSession(
+export const createSession = async (
   fastify: Fastify,
   userId: ObjectId,
   connection: any // FIXME: use appropriate type
-) {
+) => {
   try {
     // Error in no db availible
     if (!fastify.mongo.db) {
@@ -36,4 +37,18 @@ export async function createSession(
   } catch (e) {
     throw new Error("Session Creation Failed")
   }
+}
+
+export const removeSession = async (
+  fastify: Fastify,
+  sessionToken: string | JwtPayload // ???: will it break db if we'll try to use Jwtpayload as key
+) => {
+  // Error in no db availible
+  if (!fastify.mongo.db) {
+    throw new Error("No db connection")
+  }
+
+  const sessions = fastify.mongo.db.collection("sessions")
+
+  await sessions.deleteOne({ sessionToken })
 }
