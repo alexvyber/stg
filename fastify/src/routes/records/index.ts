@@ -24,7 +24,7 @@ const registerUser: FastifyPluginAsync = async (
         reply.badRequest("bad text")
       }
 
-      const recordId = await createRecord(fastify, request.body)
+      const recordId = await createRecord(fastify, request, request.body)
 
       if (!recordId) {
         reply.code(400).send({
