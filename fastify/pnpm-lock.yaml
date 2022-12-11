@@ -7,11 +7,13 @@ specifiers:
   '@fastify/mongodb': ^6.2.0
   '@fastify/sensible': ^5.0.0
   '@fastify/type-provider-typebox': ^2.4.0
+  '@fastify/websocket': ^7.1.1
   '@sinclair/typebox': ^0.25.13
   '@types/bcryptjs': ^2.4.2
   '@types/jsonwebtoken': ^8.5.9
   '@types/node': ^18.0.0
   '@types/tap': ^15.0.5
+  '@types/ws': ^8.5.3
   bcryptjs: ^2.4.3
   concurrently: ^7.0.0
   fastify: ^4.0.0
@@ -31,6 +33,7 @@ dependencies:
   '@fastify/mongodb': 6.2.0
   '@fastify/sensible': 5.2.0
   '@fastify/type-provider-typebox': 2.4.0_t3yy66fk43bn6ltgyjzztybymi
+  '@fastify/websocket': 7.1.1
   '@sinclair/typebox': 0.25.13
   bcryptjs: 2.4.3
   fastify: 4.10.2
@@ -44,6 +47,7 @@ devDependencies:
   '@types/jsonwebtoken': 8.5.9
   '@types/node': 18.11.12
   '@types/tap': 15.0.7
+  '@types/ws': 8.5.3
   concurrently: 7.6.0
   fastify-tsconfig: 1.0.1
   tap: 16.3.2_z6wznmtyb6ovnulj6iujpct7um
@@ -1135,6 +1139,16 @@ packages:
       fastify: 4.10.2
     dev: false
 
+  /@fastify/websocket/7.1.1:
+    resolution: {integrity: sha512-8lvB/E6p/o3MlmHzM2NJ19ixteI6Ckw0xOebLfoHoORPmpvCWqSp8+HLz4Gc6HrChH4vM9VcSWAK8jYuTT08hQ==}
+    dependencies:
+      fastify-plugin: 4.4.0
+      ws: 8.11.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
+
   /@istanbuljs/load-nyc-config/1.1.0:
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}
     engines: {node: '>=8'}
@@ -1245,6 +1259,12 @@ packages:
       '@types/node': 18.11.12
       '@types/webidl-conversions': 7.0.0
     dev: false
+
+  /@types/ws/8.5.3:
+    resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
+    dependencies:
+      '@types/node': 18.11.12
+    dev: true
 
   /abort-controller/3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -3278,6 +3298,19 @@ packages:
       signal-exit: 3.0.7
       typedarray-to-buffer: 3.1.5
     dev: true
+
+  /ws/8.11.0:
+    resolution: {integrity: sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: false
 
   /y18n/4.0.3:
     resolution: {integrity: sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==}
