@@ -2,11 +2,16 @@ lockfileVersion: 5.4
 
 specifiers:
   '@fastify/autoload': ^5.0.0
+  '@fastify/cookie': ^8.3.0
   '@fastify/cors': ^8.2.0
   '@fastify/mongodb': ^6.2.0
   '@fastify/sensible': ^5.0.0
+  '@fastify/type-provider-typebox': ^2.4.0
+  '@sinclair/typebox': ^0.25.13
+  '@types/bcryptjs': ^2.4.2
   '@types/node': ^18.0.0
   '@types/tap': ^15.0.5
+  bcryptjs: ^2.4.3
   concurrently: ^7.0.0
   fastify: ^4.0.0
   fastify-cli: ^5.6.0
@@ -19,15 +24,20 @@ specifiers:
 
 dependencies:
   '@fastify/autoload': 5.6.0
+  '@fastify/cookie': 8.3.0
   '@fastify/cors': 8.2.0
   '@fastify/mongodb': 6.2.0
   '@fastify/sensible': 5.2.0
+  '@fastify/type-provider-typebox': 2.4.0_t3yy66fk43bn6ltgyjzztybymi
+  '@sinclair/typebox': 0.25.13
+  bcryptjs: 2.4.3
   fastify: 4.10.2
   fastify-cli: 5.7.0
   fastify-plugin: 4.4.0
   mongodb: 4.12.1
 
 devDependencies:
+  '@types/bcryptjs': 2.4.2
   '@types/node': 18.11.12
   '@types/tap': 15.0.7
   concurrently: 7.6.0
@@ -1062,6 +1072,13 @@ packages:
       pkg-up: 3.1.0
     dev: false
 
+  /@fastify/cookie/8.3.0:
+    resolution: {integrity: sha512-P9hY9GO11L20TnZ33XN3i0bt+3x0zaT7S0ohAzWO950E9PB2xnNhLYzPFJIGFi5AVN0yr5+/iZhWxeYvR6KCzg==}
+    dependencies:
+      cookie: 0.5.0
+      fastify-plugin: 4.4.0
+    dev: false
+
   /@fastify/cors/8.2.0:
     resolution: {integrity: sha512-qDgwpmg6C4D0D3nh8MTMuRXWyEwPnDZDBODaJv90FP2o9ukbahJByW4FtrM5Bpod5KbTf1oIExBmpItbUTQmHg==}
     dependencies:
@@ -1102,6 +1119,16 @@ packages:
       ms: 2.1.3
       type-is: 1.6.18
       vary: 1.1.2
+    dev: false
+
+  /@fastify/type-provider-typebox/2.4.0_t3yy66fk43bn6ltgyjzztybymi:
+    resolution: {integrity: sha512-dP8KnpfyBD1FT1UxNWCRqSpKG69xYAK53q6MqUjuwYL7xvogXBbH/tpAMc1kZkKmgAHPT0migy9DaYtnkTbIIQ==}
+    peerDependencies:
+      '@sinclair/typebox': ^0.25.9
+      fastify: ^4.0.0
+    dependencies:
+      '@sinclair/typebox': 0.25.13
+      fastify: 4.10.2
     dev: false
 
   /@istanbuljs/load-nyc-config/1.1.0:
@@ -1165,6 +1192,10 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
+  /@sinclair/typebox/0.25.13:
+    resolution: {integrity: sha512-XiEwzYpUwE5y/k333Cy0Ujmxvw/mA4zIyEmwUyA0EDDik7ba8S/HClvz3ylOsABfYSj+/skQq4QJl0k/Z1eDLg==}
+    dev: false
+
   /@tsconfig/node10/1.0.9:
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
     dev: true
@@ -1179,6 +1210,10 @@ packages:
 
   /@tsconfig/node16/1.0.3:
     resolution: {integrity: sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==}
+    dev: true
+
+  /@types/bcryptjs/2.4.2:
+    resolution: {integrity: sha512-LiMQ6EOPob/4yUL66SZzu6Yh77cbzJFYll+ZfaPiPPFswtIlA/Fs1MzdKYA7JApHU49zQTbJGX3PDmCpIdDBRQ==}
     dev: true
 
   /@types/node/18.11.12:
@@ -1319,6 +1354,10 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: false
+
+  /bcryptjs/2.4.3:
+    resolution: {integrity: sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==}
     dev: false
 
   /binary-extensions/2.2.0:
