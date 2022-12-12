@@ -43,7 +43,7 @@ services:
     restart: always
     environment:
       # VITE_WS_URL: "wss://stg.alexvyber.dev/api/real-time/"
-      VITE_WS_URL: "ws://localhost/api/real-time/"
+      VITE_WS_URL: "ws://localhost/api/real-time"
 
   nginx:
     image: nginx

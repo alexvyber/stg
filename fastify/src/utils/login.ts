@@ -33,13 +33,13 @@ export async function login(
   reply
     .setCookie("refreshToken", tokens[0], {
       path: "/",
-      domain: "stg.alexvyber.dev",
+      domain: "localhost",
       httpOnly: true,
       expires: new Date(new Date().setDate(new Date().getDate() + 30)) // expires in 30 days // ???: kinda cryprtic is there better way to do that
     })
     .setCookie("accessToken", tokens[1], {
       path: "/",
-      domain: "stg.alexvyber.dev",
+      domain: "localhost",
       httpOnly: true
     })
 }
